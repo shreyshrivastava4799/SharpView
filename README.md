@@ -95,7 +95,7 @@ sharpLinearLayout.getRenderProxy().setBackgroundColor(0xff000000);
 
 ## Usage
 
-```java
+```
 public class SharpEditText extends TextField
 public class SharpTextView extends Text 
 public class SharpLinearLayout extends DirectionalLayout
