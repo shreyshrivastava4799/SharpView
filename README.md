@@ -2,7 +2,10 @@
 
 custom TextView,LinearLayout,RelativeLayout with sharp
 
-## Screenshots
+## Source
+The code in this repository was inspired from [zengzhaoxing/SharpView - Release v2.4.7](https://github.com/zengzhaoxing/SharpView). 
+We are very thankful to zengzhaoxing. 
+
 ![Screenshot](./images/Screenshot.png)
 
 
@@ -11,20 +14,36 @@ custom TextView,LinearLayout,RelativeLayout with sharp
 
 * custom properties
 
-name | format | instructions
------|------|----
-radius    | dimension    | 圆角大小
-backgroundColor   | color     | 背景颜色（注意不要是用安卓原生的背景相关的属性（如:background,backgroundResource等））
-arrowDirection    | enum    | 尖叫汽包相对位置(top,left,right,bottom)
-relativePosition   | fraction| 尖叫汽包相对位置，百分比
-sharpSize    | dimension    | 尖叫汽包大小，为0表示不显示尖角，默认是0
-border    | dimension    | 边框大小，默认是0
-borderColor    | color    | 边框颜色
-startBgColor    | color    | 渐变初始颜色(渐变时必选)
-middleBgColor    | color    | 渐变中间颜色(渐变时可选)
-endBgColor    | color    | 渐变结束颜色(渐变时必选)
+name | format 
+-----|------
+radius    | dimension    
+backgroundColor   | color     
+arrowDirection    | enum    
+relativePosition   | fraction
+sharpSize    | dimension    
+border    | dimension    
+borderColor    | color    
+startBgColor    | color    
+middleBgColor    | color    
+endBgColor    | color    
 
-渐变颜色只有在sharpSize为0时（没有尖角）有效
+## Dependency
+1. For using SharpView module in sample app, include the source code and add the below dependencies in entry/build.gradle to generate hap/support.har.
+```
+	dependencies {
+		implementation project(':sharpview')
+        	implementation fileTree(dir: 'libs', include: ['*.har'])
+        	testCompile 'junit:junit:4.12'
+	}
+```
+2. For using SharpView in separate application using har file, add the har file in the entry/libs folder and add the dependencies in entry/build.gradle file.
+```
+	dependencies {
+		implementation fileTree(dir: 'libs', include: ['*.har'])
+		testCompile 'junit:junit:4.12'
+	}
+
+```
 
 ## Usage
 
@@ -69,13 +88,13 @@ sharpLinearLayout.getRenderProxy().setArrowDirection(SharpView.ArrowDirection.BO
 sharpLinearLayout.getRenderProxy().setSharpSize(50);
 sharpLinearLayout.getRenderProxy().setRelativePosition(0.8f);
 sharpLinearLayout.getRenderProxy().setRadius(20);
-sharpLinearLayout.getRenderProxy().setBackgroundColor(0xff000000);//注意不要使用安卓原生的设置背景的相关方法（如setBackground，setBackgroundResource等）
+sharpLinearLayout.getRenderProxy().setBackgroundColor(0xff000000);
 
 ```
 
 
 ## Usage
-目前支持的气泡尖角或圆角控件和安卓原生控件继承关系如下
+
 ```java
 public class SharpEditText extends TextField
 public class SharpTextView extends Text 
@@ -83,6 +102,7 @@ public class SharpLinearLayout extends DirectionalLayout
 public class SharpRelativeLayout extends DependentLayout 
 public class SharpImageView extends Image 
 ```
+
 # Author 
 name ： 曾宪梓<br/>
 email ： 1071481464@qq.com
