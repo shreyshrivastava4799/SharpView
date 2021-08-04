@@ -45,6 +45,7 @@ public class SharpViewRenderProxy {
     private RgbColor[] mBgColors;
     private float[] mCornerRadii = new float[8];
     private SharpView.ArrowDirection mArrowDirection = SharpView.ArrowDirection.LEFT;
+
     public SharpDrawable mSharpDrawable;
 
     SharpViewRenderProxy(Component component, AttrSet attrs) {
@@ -63,6 +64,10 @@ public class SharpViewRenderProxy {
         if (attrs != null) {
             initAttributes(attrs);
         }
+    }
+
+    public SharpDrawable getmSharpDrawable() {
+        return mSharpDrawable;
     }
 
     public float getRadius() {
@@ -104,6 +109,10 @@ public class SharpViewRenderProxy {
     public void setBgColor(RgbColor[] bgColor) {
         mBgColors = bgColor;
         refreshView();
+    }
+
+    public void setmSharpDrawable(SharpDrawable mSharpDrawable) {
+        this.mSharpDrawable = mSharpDrawable;
     }
 
     /**
@@ -270,7 +279,7 @@ public class SharpViewRenderProxy {
 
     private void refreshView() {
         SharpDrawable bd = new SharpDrawable(ShapeElement.Orientation.LEFT_TO_RIGHT, mComponent);
-        mSharpDrawable = bd;
+        setmSharpDrawable(bd);
         if (mBgColors != null) {
             bd.setBgColor(mBgColors);
         } else {

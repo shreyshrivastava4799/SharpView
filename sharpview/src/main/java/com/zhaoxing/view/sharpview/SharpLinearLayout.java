@@ -11,20 +11,20 @@ public class SharpLinearLayout extends DirectionalLayout implements SharpView {
 
     public SharpLinearLayout(Context context) {
         super(context);
-        init(context, null, null);
+        init(null);
     }
 
     public SharpLinearLayout(Context context, AttrSet attrs) {
         super(context, attrs);
-        init(context, attrs, null);
+        init(attrs);
     }
 
     public SharpLinearLayout(Context context, AttrSet attrs, String defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs, defStyleAttr);
+        init(attrs);
     }
 
-    private void init(Context context, AttrSet attrs, String defStyleAttr) {
+    private void init(AttrSet attrs) {
         mSharpViewRenderProxy = new SharpViewRenderProxy(this, attrs);
     }
 

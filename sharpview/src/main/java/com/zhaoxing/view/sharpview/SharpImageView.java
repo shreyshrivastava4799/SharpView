@@ -32,12 +32,12 @@ public class SharpImageView extends Image implements SharpView, Component.DrawTa
 
     public SharpImageView(Context context) {
         super(context);
-        init(context, null, null);
+        init(null);
     }
 
     public SharpImageView(Context context, AttrSet attrs) {
         super(context, attrs);
-        init(context, attrs, null);
+        init(attrs);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class SharpImageView extends Image implements SharpView, Component.DrawTa
         return mSharpViewRenderProxy;
     }
 
-    private void init(Context context, AttrSet attrs, String defStyleAttr) {
+    private void init(AttrSet attrs) {
         mPaint = new Paint();
         rect = new RectFloat();
         mSharpViewRenderProxy = new SharpViewRenderProxy(this, attrs);
@@ -65,9 +65,7 @@ public class SharpImageView extends Image implements SharpView, Component.DrawTa
         mPaint.setBlendMode(BlendMode.SRC_IN);
         mOutCanvas.drawPixelMapHolderRect(getPixelMapHolder(), rect, mPaint);
         mPaint.setBlendMode(null);
-        setPixelMap(null);
         canvas.drawPixelMapHolderRect(new PixelMapHolder(mSoftOutBitmap.get()), rect, rect, mPaint);
-        onSizeChanged();
     }
 
     private void initBitmap() {

@@ -42,9 +42,8 @@ allprojects {
 
     sonarqube {
         properties {
-            property "sonar.projectKey", "applibgroup_CircularProgressView"
-            property "sonar.organization", "applibgroup"
-            property "sonar.host.url", "https://localhost:9000"
+            property "sonar.projectKey", "SharpView"
+            property "sonar.host.url", "http://localhost:9000"
             property "sonar.sources", "entry,sharpview"
             property "sonar.java.binaries", "entry/build,sharpview/build"
             property "sonar.java.checkstyle.reportPaths", "build/reports/checkstyle/checkstyle.xml"

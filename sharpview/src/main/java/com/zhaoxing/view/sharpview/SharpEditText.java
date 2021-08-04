@@ -12,20 +12,20 @@ public class SharpEditText extends TextField implements SharpView {
 
     public SharpEditText(Context context) {
         super(context);
-        init(context, null, null);
+        init(null);
     }
 
     public SharpEditText(Context context, AttrSet attrs) {
         super(context, attrs);
-        init(context, attrs, null);
+        init(attrs);
     }
 
     public SharpEditText(Context context, AttrSet attrs, String defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs, defStyleAttr);
+        init(attrs);
     }
 
-    private void init(Context context, AttrSet attrs, String defStyleAttr) {
+    private void init(AttrSet attrs) {
         mSharpViewRenderProxy = new SharpViewRenderProxy(this, attrs);
     }
 
